@@ -1,3 +1,29 @@
+
+![FrontEnd P1](https://github.com/user-attachments/assets/8e774903-d97d-4d7a-986d-ab8c93883932)
+![FrontEndSignup](https://github.com/user-attachments/assets/54107770-8bd1-4a22-bdf7-0c43b183aecb)
+![loginFrontEnd](https://github.com/user-attachments/assets/da77ea1b-ca06-4c88-966d-68e29a26b63a)
+![PrivateFrontend](https://github.com/user-attachments/assets/121886d9-a4a0-4a14-bcaa-45d152191d69)
+
+Registro: El usuario deberá poder colocar un correo, una contraseña y enviar el formulario, un nuevo usuario debe ser creado en la base de datos y el usuario debe ser redireccionado al inicio de sesión luego de esto.
+Inicio de Sesión: El usuario debe llenar su correo y contraseña y debe ser redirigido a un menú privado luego de que la autenticación sea exitosa.
+
+Validación: Cualquier página considerada "privada" siempre debe estar validando que el usuario actual es válido, si no, la página debe redirigir al inicio de sesión.
+
+Cierre de Sesión: Cualquier momento que el usuario presione el "cierre de sesión" en la barra de navegación (navbar) se debe redirigir a la ruta del inicio de sesión.
+Al menos las siguientes páginas y componentes de React deben ser implementados en el proyecto:
+
+Ruta	Componente	Funcionalidad
+/signup	<Signup>	Renderizar formulario de registro
+/login	<Login>	Renderizar formulario de Inicio de sesión
+/private	<Private>	Validar que solo ingresen usuarios autenticados y renderizar este componente
+
+
+
+
+
+
+
+
 # WebApp boilerplate with React JS and Flask API
 
 Build web applications using React.js for the front end and python/flask for your backend API.
