@@ -8,7 +8,7 @@ const Login = () => {
 
     const onSubmit = async (data) => {
         try {
-            const resp = await fetch("https://curly-invention-q76q7wq7wqx63xrvj-3001.app.github.dev/api/login", {
+            const resp = await fetch("https://curly-space-parakeet-5g5qgwqg6w5v2p4gx-3001.app.github.dev/api/login", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(data)
