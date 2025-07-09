@@ -20,7 +20,7 @@ const Private = () => {
   <div className="private-container">
     <h2 className="secret-title">Bienvenido a la zona privada</h2>
     <p className="secret-description">
-      Aca te puedes relajarte y pasarla bien si dejas correr el video.
+      Aca puedes relajarte y pasarla bien con musica si dejas correr el video.
     </p>
     <div className="video-wrapper">
       <iframe
