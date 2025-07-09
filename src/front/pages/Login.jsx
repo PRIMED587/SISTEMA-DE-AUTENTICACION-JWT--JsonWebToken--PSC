@@ -2,6 +2,7 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+const backendUrl = import.meta.env.VITE_BACKEND_URL;
 
 const Login = () => {
     const { register, handleSubmit } = useForm();
@@ -9,7 +10,7 @@ const Login = () => {
 
     const onSubmit = async (data) => {
         try {
-            const resp = await fetch("https://jwt-sistema-autenticacion-psc.onrender.com/api/login", {
+            const resp = await fetch(`${backendUrl}/api/login`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(data)
