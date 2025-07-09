@@ -27,12 +27,18 @@ services:
                 property: connectionString
 
 databases: # Render PostgreSQL database
-    - name: postgresql-trapezoidal-42170
-       databaseName: postgresql_trapezoidal_42170_cz9a
-       user: postgresql_trapezoidal_42170_cz9a_user
-       plan: basic-256mb
-      region: ohio
-       ipAllowList: []
-      postgresMajorVersion: "16"
-      diskSizeGB: 1
-      version: "1"
+  - name: postgresql-trapezoidal-42170
+    databaseName: postgresql_trapezoidal_42170_cz9a
+    user: postgresql_trapezoidal_42170_cz9a_user
+    plan: basic-256mb
+    region: ohio
+    ipAllowList: []
+    postgresMajorVersion: "16"
+    diskSizeGB: 1
+    version: "1"
+
+
+      # - name: postgresql-trapezoidal-42170
+      # region: ohio
+      # ipAllowList: [] # only allow internal connections
+      # plan: free # optional; defaults to starter
