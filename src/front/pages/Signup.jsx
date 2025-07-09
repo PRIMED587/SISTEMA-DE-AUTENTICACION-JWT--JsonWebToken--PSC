@@ -9,7 +9,7 @@ const Signup = () => {
 
     const onSubmit = async (data) => {
         try {
-            const resp = await fetch("https://curly-space-parakeet-5g5qgwqg6w5v2p4gx-3001.app.github.dev/api/signup", {
+            const resp = await fetch("https://jwt-sistema-autenticacion-psc.onrender.com/api/signup", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify(data)
