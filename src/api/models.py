@@ -1,7 +1,7 @@
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import String
 from sqlalchemy.orm import Mapped, mapped_column
-import bcrypt  # ✅ Necesario para hashear y verificar contraseñas
+import bcrypt  
 
 db = SQLAlchemy()
 
@@ -14,10 +14,10 @@ class User(db.Model):
         return {
             "id": self.id,
             "email": self.email,
-            # No incluir la contraseña por seguridad
+            
         }
 
-    # ✅ Guardar contraseña encriptada
+    
     def set_password(self, password_plaintext):
         self.password = bcrypt.hashpw(
             password_plaintext.encode('utf-8'), 
