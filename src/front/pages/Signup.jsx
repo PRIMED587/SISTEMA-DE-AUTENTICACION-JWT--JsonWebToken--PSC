@@ -1,11 +1,11 @@
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useState } from "react";
+import Swal from "sweetalert2";
 
 const Signup = () => {
     const { register, handleSubmit } = useForm();
     const navigate = useNavigate();
-    const [successMessage, setSuccessMessage] = useState("");
 
     const onSubmit = async (data) => {
         try {
@@ -15,27 +15,45 @@ const Signup = () => {
                 body: JSON.stringify(data)
             });
 
+            const result = await resp.json();
+
             if (resp.ok) {
-                setSuccessMessage("Usuario registrado satisfactoriamente");
+                Swal.fire({
+                    icon: "success",
+                    title: "¡Registrado!",
+                    text: "Usuario registrado satisfactoriamente",
+                    timer: 2000,
+                    showConfirmButton: false
+                });
                 setTimeout(() => {
-                    navigate("/login"); // Asegúrate que esta ruta está definida
+                    navigate("/login");
                 }, 2000);
+            } else if (result.msg?.includes("already exists") || result.msg?.includes("ya se encuentra registrado")) {
+                Swal.fire({
+                    icon: "warning",
+                    title: "Correo ya registrado",
+                    text: "El correo con el que intenta registrarse ya está en uso.",
+                });
             } else {
-                alert("Error al registrar usuario.");
+                Swal.fire({
+                    icon: "error",
+                    title: "Error",
+                    text: result.msg || "No se pudo registrar el usuario.",
+                });
             }
         } catch (error) {
             console.error("Error:", error);
+            Swal.fire({
+                icon: "error",
+                title: "Error de red",
+                text: "Ocurrió un error al conectar con el servidor.",
+            });
         }
     };
 
     return (
         <div className="container mt-5">
             <h2>Registro</h2>
-            {successMessage && (
-                <div className="alert alert-success" role="alert">
-                    {successMessage}
-                </div>
-            )}
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="mb-3">
                     <label>Email</label>

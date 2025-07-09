@@ -1,6 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const Login = () => {
     const { register, handleSubmit } = useForm();
@@ -18,12 +19,28 @@ const Login = () => {
 
             if (resp.ok) {
                 sessionStorage.setItem("token", result.token);
-                navigate("/private");
+                Swal.fire({
+                    icon: "success",
+                    title: "¡Bienvenido!",
+                    text: "Inicio de sesión exitoso",
+                    timer: 1500,
+                    showConfirmButton: false
+                });
+                setTimeout(() => navigate("/private"), 1500);
             } else {
-                alert("Credenciales inválidas");
+                Swal.fire({
+                    icon: "error",
+                    title: "Credenciales incorrectas",
+                    text: "Verifica tu correo y contraseña.",
+                });
             }
         } catch (error) {
             console.error("Error:", error);
+            Swal.fire({
+                icon: "error",
+                title: "Error de red",
+                text: "No se pudo conectar con el servidor.",
+            });
         }
     };
 
@@ -43,6 +60,6 @@ const Login = () => {
             </form>
         </div>
     );
-}
+};
 
-export default Login
+export default Login;
